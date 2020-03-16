@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Navigation Controller View Controller-->
         <scene sceneID="mbX-hS-HC0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="umx-WS-SBg" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="umx-WS-SBg" customClass="NavigationControllerViewController" customModule="Cooking_Studio" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iKq-rs-ffN">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -25,16 +25,16 @@
             </objects>
             <point key="canvasLocation" x="-32" y="98"/>
         </scene>
-        <!--Recipe DetailVC-->
+        <!--Detail-->
         <scene sceneID="k4F-1K-Hdb">
             <objects>
-                <viewController id="eS9-rj-uyf" customClass="RecipeDetailVC" customModule="Resturant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eS9-rj-uyf" customClass="RecipeDetailVC" customModule="Cooking_Studio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rdb-FR-l8H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="burger2" translatesAutoresizingMaskIntoConstraints="NO" id="5BZ-Yz-GGM">
-                                <rect key="frame" x="0.0" y="88" width="414" height="225.00000000000023"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="225"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="225" id="Ags-GB-zxz"/>
                                 </constraints>
@@ -65,7 +65,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Um-oi-LeN"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uZN-S0-tXR"/>
+                    <navigationItem key="navigationItem" title="Detail" id="uZN-S0-tXR"/>
                     <connections>
                         <outlet property="recipeImg" destination="5BZ-Yz-GGM" id="qap-qJ-kJa"/>
                         <outlet property="recipeInstructions" destination="RsU-Fa-Tkq" id="7hT-xX-ByY"/>
@@ -76,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="2260.8695652173915" y="97.767857142857139"/>
         </scene>
-        <!--HomeVC-->
+        <!--Categories-->
         <scene sceneID="cri-PD-og5">
             <objects>
-                <viewController id="3Pc-yW-Meu" customClass="HomeVC" customModule="Resturant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3Pc-yW-Meu" customClass="HomeVC" customModule="Cooking_Studio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BSd-Pu-rKi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,7 +88,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="200" id="euF-nk-jkQ" customClass="CategoryCell" customModule="Resturant" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="200" id="euF-nk-jkQ" customClass="CategoryCell" customModule="Cooking_Studio" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="euF-nk-jkQ" id="chQ-Tv-jiJ">
@@ -115,6 +115,7 @@
                                                 <constraint firstItem="fXY-a3-oyH" firstAttribute="leading" secondItem="chQ-Tv-jiJ" secondAttribute="leading" constant="20" id="ydH-0f-v2X"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="categoryImg" destination="ZLQ-6E-Sfh" id="x18-zm-Dca"/>
                                             <outlet property="categoryTitle" destination="fXY-a3-oyH" id="b6s-3G-IBl"/>
@@ -123,7 +124,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MnG-0D-5VE" firstAttribute="trailing" secondItem="iN9-rU-aiP" secondAttribute="trailing" id="98W-dc-1Lr"/>
                             <constraint firstItem="iN9-rU-aiP" firstAttribute="top" secondItem="MnG-0D-5VE" secondAttribute="top" id="GFq-br-IOf"/>
@@ -132,7 +133,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MnG-0D-5VE"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dd7-ao-xEr"/>
+                    <navigationItem key="navigationItem" title="Categories" id="dd7-ao-xEr">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="edit" id="PJp-oq-qOp">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="3Pc-yW-Meu" id="Pez-jg-Amg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="bMu-eA-fnz">
+                            <connections>
+                                <segue destination="2ev-Ck-uEP" kind="show" id="ufg-VM-ahG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="iN9-rU-aiP" id="Qim-at-NmG"/>
                         <segue destination="EO8-6h-sAW" kind="show" identifier="toRecipeSelection" id="G4K-C6-BGL"/>
@@ -142,10 +154,10 @@
             </objects>
             <point key="canvasLocation" x="707" y="98"/>
         </scene>
-        <!--Recipes SelectionVC-->
+        <!--Recipes-->
         <scene sceneID="spK-20-BpF">
             <objects>
-                <viewController id="EO8-6h-sAW" customClass="RecipesSelectionVC" customModule="Resturant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EO8-6h-sAW" customClass="RecipesSelectionVC" customModule="Cooking_Studio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Vr-Eh-4jE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -160,7 +172,7 @@
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recipeCell" id="fEi-Nw-8j5" customClass="RecipeCell" customModule="Resturant" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recipeCell" id="fEi-Nw-8j5" customClass="RecipeCell" customModule="Cooking_Studio" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -168,7 +180,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AsB-Zh-6Cx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="189" height="159"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -195,7 +207,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b0Y-gH-aMc"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5Bu-sj-33i"/>
+                    <navigationItem key="navigationItem" title="Recipes" id="5Bu-sj-33i">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="7Az-6H-ZFv">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="EO8-6h-sAW" id="EQQ-zv-KrX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="oEf-P1-ZbY" id="JYj-HK-xke"/>
                         <segue destination="eS9-rj-uyf" kind="show" identifier="toRecipeSelction" id="Pzy-MU-3Pu"/>
@@ -204,6 +222,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6lx-4R-feG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1516" y="98"/>
+        </scene>
+        <!--Categories-->
+        <scene sceneID="eld-Yd-XpU">
+            <objects>
+                <viewController id="2ev-Ck-uEP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e3X-N3-UdU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sug-67-d34">
+                                <rect key="frame" x="159" y="577" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bud-Up-a0Y">
+                                <rect key="frame" x="20" y="172" width="374" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="FWA-8n-dea"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Categories" id="o2e-wV-iyO">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="NHk-5C-l25"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="phv-G9-7VG" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="705.79710144927537" y="776.78571428571422"/>
         </scene>
     </scenes>
     <resources>

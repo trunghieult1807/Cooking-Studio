@@ -12,4 +12,9 @@ struct Recipe {
     var title : String
     var instructions : String
     var imageName : String
+    init(title: String, instructions: String, imageName: String) {
+        self.title = title
+        self.instructions = instructions
+        self.imageName = imageName
+    }
 }

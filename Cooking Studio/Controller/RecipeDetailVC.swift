@@ -18,10 +18,12 @@ class RecipeDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
 
         recipeImg.image = UIImage(named: selectedRecipe.imageName)
         recipeTitle.text = selectedRecipe.title
-        recipeInstructions.text = selectedRecipe.instructions    }
+        recipeInstructions.text = selectedRecipe.instructions
+    }
     
 
 }

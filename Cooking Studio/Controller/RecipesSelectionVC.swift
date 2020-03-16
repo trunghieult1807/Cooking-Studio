@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class RecipesSelectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
    
@@ -20,13 +21,82 @@ class RecipesSelectionVC: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        overrideUserInterfaceStyle = .light
+        loadSampleRecipes()
         recipes = data.getRecipes(forCategoryTitle: selectCategory)
-
+        
+        ///
+        
+         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
+         collectionView.addGestureRecognizer(longPressGesture)
     }
     
+    
+    
+    @IBAction func editButtonTapped(_ sender: Any) {
+        
+    }
+    
+    
+    @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
+
+            switch(gesture.state) {
+
+            case UIGestureRecognizerState.began:
+                guard let selectedIndexPath = self.collectionView.indexPathForItem(at: gesture.location(in: self.collectionView)) else {
+            break
+
+            }
+            collectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
+            case UIGestureRecognizerState.changed:
+                collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
+            case UIGestureRecognizerState.ended:
+            collectionView.endInteractiveMovement()
+            default:
+            collectionView.cancelInteractiveMovement()
+
+
+           }
+    }
+
+    
+    
+    
+    func createDataRecipes(recipe: Recipe) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Recipes", in: managedContext)!
+        let recipes = NSManagedObject(entity: entity, insertInto: managedContext)
+        recipes.setValue(recipe.title, forKey: "title")
+        recipes.setValue(recipe.imageName, forKey: "imageName")
+        recipes.setValue(recipe.instructions, forKey: "instructions")
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func retrieveDataRecipes() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipes")
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            for recipe in result as! [NSManagedObject] {
+                recipes.append(Recipe.init(title: recipe.value(forKey: "title") as! String, instructions: recipe.value(forKey: "instructions") as! String, imageName: recipe.value(forKey: "imageName") as! String))
+            }
+        } catch {
+            print("Error")
+        }
+    }
+    
+    
+    
+    private func loadSampleRecipes() {
+        collectionView.delegate = self
+        collectionView.dataSource = self        
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recipes.count
@@ -46,13 +116,43 @@ class RecipesSelectionVC: UIViewController, UICollectionViewDelegate, UICollecti
         let cellDimension = (width / 2) - 15
         return CGSize(width: cellDimension, height: cellDimension)
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        recipeToPass = recipes[indexPath.item]
-        performSegue(withIdentifier: "toRecipeSelction", sender: self)
-    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailsVC = segue.destination as? RecipeDetailVC {
             detailsVC.selectedRecipe = recipeToPass
         }
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let questionController = UIAlertController(title: "What u wanna do?", message: nil, preferredStyle: .alert)
+
+        questionController.addAction(UIAlertAction(title: "Detail", style: .default, handler: {
+            (action: UIAlertAction!) in
+            self.recipeToPass = self.recipes[indexPath.item]
+            self.performSegue(withIdentifier: "toRecipeSelction", sender: self)
+        }))
+        
+        questionController.addAction(UIAlertAction(title: "Delete Person", style: .default, handler: {
+
+            (action:UIAlertAction!) -> Void in
+            self.collectionView.deleteItems(at: [indexPath])
+            self.recipes.remove(at: indexPath.item)
+            //self.collectionView.reloadData()
+
+        }))
+
+        present(questionController, animated: true, completion: nil)
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+       return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        print("Starting Index: \(sourceIndexPath.item)")
+        print("Ending Index: \(destinationIndexPath.item)")
+    }
+    
 }

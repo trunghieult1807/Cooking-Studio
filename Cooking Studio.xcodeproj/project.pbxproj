@@ -24,6 +24,7 @@
 		186D634D241E5CDB0040200B /* RecipeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D6345241E5CDB0040200B /* RecipeDetailVC.swift */; };
 		186D634E241E5CDB0040200B /* RecipesSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D6346241E5CDB0040200B /* RecipesSelectionVC.swift */; };
 		186D634F241E5CDB0040200B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D6347241E5CDB0040200B /* HomeVC.swift */; };
+		186D6355241FC2660040200B /* NavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D6354241FC2660040200B /* NavigationControllerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		186D6345241E5CDB0040200B /* RecipeDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailVC.swift; sourceTree = "<group>"; };
 		186D6346241E5CDB0040200B /* RecipesSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesSelectionVC.swift; sourceTree = "<group>"; };
 		186D6347241E5CDB0040200B /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		186D6354241FC2660040200B /* NavigationControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				186D6345241E5CDB0040200B /* RecipeDetailVC.swift */,
+				186D6354241FC2660040200B /* NavigationControllerViewController.swift */,
 				186D6346241E5CDB0040200B /* RecipesSelectionVC.swift */,
 				186D6347241E5CDB0040200B /* HomeVC.swift */,
 			);
@@ -310,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186D6355241FC2660040200B /* NavigationControllerViewController.swift in Sources */,
 				186D6315241E5C6C0040200B /* Cooking_Studio.xcdatamodeld in Sources */,
 				186D6349241E5CDB0040200B /* FoodCategory.swift in Sources */,
 				186D630F241E5C6C0040200B /* ViewController.swift in Sources */,
