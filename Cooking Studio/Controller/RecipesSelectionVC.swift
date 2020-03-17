@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreData
+//import CoreData
 
 class RecipesSelectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
    
@@ -62,34 +62,34 @@ class RecipesSelectionVC: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     
-    func createDataRecipes(recipe: Recipe) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Recipes", in: managedContext)!
-        let recipes = NSManagedObject(entity: entity, insertInto: managedContext)
-        recipes.setValue(recipe.title, forKey: "title")
-        recipes.setValue(recipe.imageName, forKey: "imageName")
-        recipes.setValue(recipe.instructions, forKey: "instructions")
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-    }
-    
-    func retrieveDataRecipes() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipes")
-        do {
-            let result = try managedContext.fetch(fetchRequest)
-            for recipe in result as! [NSManagedObject] {
-                recipes.append(Recipe.init(title: recipe.value(forKey: "title") as! String, instructions: recipe.value(forKey: "instructions") as! String, imageName: recipe.value(forKey: "imageName") as! String))
-            }
-        } catch {
-            print("Error")
-        }
-    }
+//    func createDataRecipes(recipe: Recipe) {
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//        let entity = NSEntityDescription.entity(forEntityName: "Recipes", in: managedContext)!
+//        let recipes = NSManagedObject(entity: entity, insertInto: managedContext)
+//        recipes.setValue(recipe.title, forKey: "title")
+//        recipes.setValue(recipe.imageName, forKey: "imageName")
+//        recipes.setValue(recipe.instructions, forKey: "instructions")
+//        do {
+//            try managedContext.save()
+//        } catch let error as NSError {
+//            print("Could not save. \(error), \(error.userInfo)")
+//        }
+//    }
+//    
+//    func retrieveDataRecipes() {
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipes")
+//        do {
+//            let result = try managedContext.fetch(fetchRequest)
+//            for recipe in result as! [NSManagedObject] {
+//                recipes.append(Recipe.init(title: recipe.value(forKey: "title") as! String, instructions: recipe.value(forKey: "instructions") as! String, imageName: recipe.value(forKey: "imageName") as! String))
+//            }
+//        } catch {
+//            print("Error")
+//        }
+//    }
     
     
     
