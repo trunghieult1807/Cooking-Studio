@@ -79,7 +79,6 @@
         <!--Categories-->
         <scene sceneID="3Sj-2r-Tl2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bpB-KJ-vv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="WKY-XV-VIP" customClass="HomeVC" customModule="Cooking_Studio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tVV-IF-gPO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -137,8 +136,10 @@
                     </navigationItem>
                     <connections>
                         <segue destination="EO8-6h-sAW" kind="show" identifier="toRecipeSelection" id="mg0-jw-2gP"/>
+                        <segue destination="2ev-Ck-uEP" kind="show" identifier="edit" id="aAc-1x-dSm"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bpB-KJ-vv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="704" y="98"/>
         </scene>
@@ -204,7 +205,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="oEf-P1-ZbY" id="JYj-HK-xke"/>
-                        <segue destination="eS9-rj-uyf" kind="show" identifier="toRecipeSelction" id="Pzy-MU-3Pu"/>
+                        <segue destination="eS9-rj-uyf" kind="show" identifier="toRecipeDetail" id="Pzy-MU-3Pu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6lx-4R-feG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -275,4 +276,7 @@
         <image name="burger0" width="1052" height="699"/>
         <image name="burger2" width="635" height="948"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="aAc-1x-dSm"/>
+    </inferredMetricsTieBreakers>
 </document>
