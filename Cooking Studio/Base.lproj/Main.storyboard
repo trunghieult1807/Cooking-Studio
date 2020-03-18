@@ -123,13 +123,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Categories" id="ben-x3-uu5">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="edit" id="nGI-tJ-hWf">
-                            <connections>
-                                <action selector="editButtonTapped:" destination="WKY-XV-VIP" id="9Ak-ll-0CG"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="edit" id="nGI-tJ-hWf"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="9pK-PR-Rlj">
                             <connections>
+                                <action selector="addButtonTapped:" destination="WKY-XV-VIP" id="M0x-tm-iRr"/>
                                 <segue destination="2ev-Ck-uEP" kind="show" id="ECW-d3-s80"/>
                             </connections>
                         </barButtonItem>
