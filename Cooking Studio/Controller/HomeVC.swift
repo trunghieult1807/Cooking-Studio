@@ -14,11 +14,12 @@ class HomeVC: UITableViewController {
     
     var categories = [NewFoodCategories]()
     
-    var categortToPass: String!
+    var categortToPass: String?
     
     var signal: Int = 0
     
     var dragInitialIndexPath: IndexPath?
+    
     var dragCellSnapshot: UIView?
     
     override func viewDidLoad() {
@@ -27,15 +28,16 @@ class HomeVC: UITableViewController {
         // Set up for view
         overrideUserInterfaceStyle = .light
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        
+        print(categories)
         // Initial set up for core data
         if let savedCategories = loadCategories() {
             categories += savedCategories
         } else {
             loadSampleCotegories()
         }
+        print(categories)
         
-        // Long press for reodering
+        // Long press to reoder
         do {
             let longPress = UILongPressGestureRecognizer(target: self, action: #selector(onLongPressGesture(sender:)))
             longPress.minimumPressDuration = 0.3 // optional
@@ -62,6 +64,8 @@ class HomeVC: UITableViewController {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
+    
+    
     
     func loadCategories() -> [NewFoodCategories]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: NewFoodCategories.ArchiveURL.path) as? [NewFoodCategories]

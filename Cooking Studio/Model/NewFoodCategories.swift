@@ -44,4 +44,6 @@ class NewFoodCategories: NSObject, NSCoding {
     }
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("Categories")
+    
+    
 }

@@ -14,13 +14,13 @@ class RecipeDetailVC: UIViewController {
     @IBOutlet weak var recipeTitle: UILabel!
     @IBOutlet weak var recipeInstructions: UILabel!
     
-    var selectedRecipe: Recipe!
+    var selectedRecipe: DetailRecipe!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light
 
-        recipeImg.image = UIImage(named: selectedRecipe.imageName)
+        recipeImg.image = selectedRecipe.image
         recipeTitle.text = selectedRecipe.title
         recipeInstructions.text = selectedRecipe.instructions
     }
