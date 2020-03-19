@@ -198,8 +198,7 @@ class HomeVC: UITableViewController {
     @objc func onLongPressGesture(sender: UILongPressGestureRecognizer) {
         let locationInView = sender.location(in: tableView)
         let indexPath = tableView.indexPathForRow(at: locationInView)
-        let generator = UIImpactFeedbackGenerator(style: .light)
-        generator.impactOccurred()
+        
         if sender.state == .began {
             if indexPath != nil {
                 dragInitialIndexPath = indexPath
@@ -238,6 +237,8 @@ class HomeVC: UITableViewController {
                 dragInitialIndexPath = indexPath
             }
         } else if sender.state == .ended && dragInitialIndexPath != nil {
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.impactOccurred()
             let cell = tableView.cellForRow(at: dragInitialIndexPath!)
             cell?.isHidden = false
             cell?.alpha = 0.0
@@ -258,6 +259,8 @@ class HomeVC: UITableViewController {
     }
     
     func snapshotOfCell(inputView: UIView) -> UIView {
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
         UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0.0)
         inputView.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
