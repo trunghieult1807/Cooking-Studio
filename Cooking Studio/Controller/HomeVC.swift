@@ -182,7 +182,8 @@ class HomeVC: UITableViewController {
             NewFoodCategories(title: "Pasta", image: UIImage(named: "pasta0")),
             NewFoodCategories(title: "Pizza", image: UIImage(named: "pizza0")),
             NewFoodCategories(title: "Salads", image: UIImage(named: "salad0")),
-            NewFoodCategories(title: "Sandwiches", image: UIImage(named: "sandwich0"))
+            NewFoodCategories(title: "Sandwiches", image: UIImage(named: "sandwich0")),
+            NewFoodCategories(title: "Cookie", image: UIImage(named: "cookie"))
         ]
         for data in category {
             categories.append(data!)
